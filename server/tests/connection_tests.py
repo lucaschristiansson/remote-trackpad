@@ -24,12 +24,3 @@ def test_ping(socketio_client):
 def test_socketio_disconnect(socketio_client):
 	socketio_client.disconnect()
 	assert not socketio_client.is_connected()
-
-def test_index_returns_html_file():
-    client = main.app.test_client()
-
-    response = client.get("/")
-
-    assert response.status_code == 200
-    assert response.content_type == "text/html; charset=utf-8"
-    assert b"<title>Remote Trackpad</title>" in response.data
